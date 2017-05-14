@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<!-- Bootstrap -->
+<link href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+<!-- Non Response -->
+<link href="../static/css/non-responsive.css"
+	th:href="@{css/non-responsive.css}" rel="stylesheet" />
+
+<title>ETOS Gallery(Non-response)</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:text="#{road.project}">Brand</a>
+			</div>
+
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-2">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Link</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+							<span class="caret"></span>
+					</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Action</a></li>
+							<li><a href="#">Another action</a></li>
+							<li><a href="#">Something else here</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Separated link</a></li>
+							<li class="divider"></li>
+							<li><a href="#">One more separated link</a></li>
+						</ul></li>
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search" />
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Link</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h3>Non-responsive grid system</h3>
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#etos_home" data-toggle="tab"
+				aria-expanded="false">설비조회</a></li>
+			<li class=""><a href="#etos_insert" data-toggle="tab"
+				aria-expanded="true">설비입력</a></li>
+			<li class="disabled"><a>Disabled</a></li>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#" aria-expanded="false"> 추가기능
+					<span class="caret"></span>
+			</a>
+				<ul class="dropdown-menu">
+					<li><a href="#dropdown1" data-toggle="tab">Action</a></li>
+					<li class="divider"></li>
+					<li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
+				</ul></li>
+		</ul>
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade  active in" id="etos_home">
+				<p>설비 관련도니 정보를 조회 할 수 있는 페이지 입니다.</p>
+						<div class="row">
+			<!-- 			
+			<table id="eqpTable" class="table table-striped table-hover">
+			</table> -->
+			<table id="myTableId" class="table table-striped table-hover" dt:table="true">
+				<thead>
+					<tr>
+						<th dt:sortType="natural"> EQPID</th>
+						<th>IP_ADDR</th>
+						<th>EQP_POS</th>
+						<th>EQP_TYPE</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Column content</td>
+						<td>Column content</td>
+						<td>Column content</td>
+						<td>Column content</td>
+					</tr>
+					
+					<tr th:each="prod,iter : ${prods}" th:class="${iter.odd} ? 'info':'default'">
+						<td th:text="${prod.eqpid}"></td>
+						<td th:text="${prod.eqpip}"></td>
+						<td th:text="${prod.eqpline}"></td>
+						<td th:text="${prod.eqptype}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+			</div>
+			<div class="tab-pane fade" id="etos_insert">
+				<p>설비 정보를 입력 할 수 있는 입력 페이지를 구성할 계획입니다.</p>
+				<form class="form-horizontal">
+				  <fieldset>
+				    <legend>Legend</legend>
+				    <div class="form-group">
+				      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+				      <div class="col-lg-10">
+				        <input type="text" class="form-control" id="inputEmail" placeholder="Email" />
+				      </div>
+				    </div>
+				    </fieldset>
+   				 </form>
+			</div>
+			
+			<div class="tab-pane fade" id="dropdown1">
+				<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they
+					sold out mcsweeney's organic lomo retro fanny pack lo-fi
+					farm-to-table readymade. Messenger bag gentrify pitchfork tattooed
+					craft beer, iphone skateboard locavore carles etsy salvia banksy
+					hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify
+					squid 8-bit cred pitchfork.</p>
+			</div>
+			<div class="tab-pane fade" id="dropdown2">
+				<p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
+					art party before they sold out master cleanse gluten-free squid
+					scenester freegan cosby sweater. Fanny pack portland seitan DIY,
+					art party locavore wolf cliche high life echo park Austin. Cred
+					vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
+					farm-to-table VHS viral locavore cosby sweater.</p>
+			</div>
+		</div>
+
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{js/bootstrap.min.js}"></script>
+	<script src="../static/js/jquery.dataTables.min.js"
+		th:src="@{js/jquery.dataTables.min.js}"></script>
+</body>
+</html>
